@@ -1,0 +1,50 @@
+#include <stdio.h>
+char 9a, b2; // error 1
+INT ar[10];  // error 2
+long fr; nx; //error 3
+int * p;
+
+int main (void){
+      int auto ;  //error 4
+      int x;
+      ar[1] = x;
+      *p = 10;
+      suto = chg(x); //error 5
+      return auto; //error 6
+}
+int chg(long  fr)  {
+     if (fr = 0) {  //error 7
+          x = 10; //error 8
+          ar[10] = 10; //error 9
+        } else {
+             ar[1] = 1;
+        }
+    return ar[1];
+}
+
+Error 1: Lexical
+Error 1 is an error as "9a" is a malformed token; lexical errors deal with breaking code into tokens, so it is placed here.
+
+Error 2: Static Semantic
+Error 2 is an error because "INT" is not a meaningful token; however, it is not lexical because it is a valid token; it is not syntactical as this line *could* be a meaningful statement. However, it is a static semantical error as "INT" is a meaningless token as of the point in the code in which it is used; it is not a valid variable name.
+
+Error 3: Static Semantic
+Error 3 is a static semantic error because the "nx" in the line is meaningless, and no meaning is assigned to it on this line. Again, it is a valid token and could be a meaningful statement, but seeing as "nx" is undefined and meaningless at this point, invoking it causes an error.
+
+Error 4: Syntactical
+Error 4 is a syntactical error as both "int" and "auto" are valid tokens; however, this statement is meaningless as these type defs are not assigned with any identifying values.
+
+Error 5: Static Semantic
+Error 5 is an error as "suto" is not associated with a type. C demands that you indicate variable types upon declarion of a variable; it is static semantic because the lack of a variable type causes the program to assume that "suto" has been declared already, when it hasn't; as such, it is a meaningless variable name.
+
+Error 6: Syntactical
+Error 6 is an error because "auto" is not a valid return type. It is a syntactical error because, like in Error 4, "return auto" is not a meaningful statement, since the compiler will not see "auto" as a variable name as was intended due to it being a keyword.
+
+Error 7: Logical
+Error 7 is an error because it is clear to me that the intended purpose of this line is to compare the passed value "fr" to "0"; however, it instead assigns "0" to "fr" and will always return "0". The statement is well-formed, all tokens are valid, and all variables are meaningful, meaning it is not caught during compilation, and because the expression is still valid and functional, it does not force the program to stop, meaning it is not caught during runtime either; however, it produces a consistant and predictable error, meaning it isn't an uncheckable error either; as such, it is a logical error.
+
+Error 8: Static Semantic
+Error 8 is an error as the variable "x" is not in scope at this point in the function, instead being part of the main function. As such, the compiler will notice that "x" is an undefined variable at this point in the code, which makes it a static semantic error.
+
+Error 9: Uncheckable
+Error 9 is an error because it assigns a value to the 11th index of an array with only 10 indices. The code will still compile, as C does not check array lengths in this way, and it will technically still run, because the 11th index of a 10-index array is still reserved for the array; however, it is reserved to indicate the end of the array, after which is memory used by other parts of the program. Overwriting the end of the array will cause that memory to be unprotected, which leads to unpredictable effects.
