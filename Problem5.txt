@@ -1,0 +1,1 @@
+Undefined behavior is any code that generates inconsistent and unpredictable results; for example, code accessing parts of memory that have not been used yet, or affecting parts of memory in unintended ways.

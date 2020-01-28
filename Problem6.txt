@@ -1,0 +1,1 @@
+Unspecified Behavior may also be Undefined; however, unspecified behavior is simply code that generates unknown results, not necessarily unexpected or unpredictable.

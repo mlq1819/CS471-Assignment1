@@ -1,6 +1,6 @@
 Part 1:
 int powF(int pow, int base, int current) {
-	return pow>1 ? powF(pow-1, current*base) : current;
+	return pow>1 ? powF(pow-1, base, current*base) : current;
 }
 
 Part 2

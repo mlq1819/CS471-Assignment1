@@ -10,7 +10,7 @@ int powI(int pow, int base) {
 } 
 
 int powF(int pow, int base, int current) {
-	return pow>1 ? powF(pow-1, current*base) : current;
+	return pow>1 ? powF(pow-1, base, current*base) : current;
 }
 
 int main(int argc, char **argv) {
