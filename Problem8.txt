@@ -1,0 +1,1 @@
+Syntax regards the structure of the code; semantics regards the meaning of the code. A Syntax error indicates meaningless structure, while Semantical Errors indicate meaningless code.
