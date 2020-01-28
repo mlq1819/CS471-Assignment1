@@ -1,0 +1,10 @@
+Part 1:
+int powF(int pow, int base, int current) {
+	return pow>1 ? powF(pow-1, current*base) : current;
+}
+
+Part 2
+powI has a complexity of O(pow) ( O(N) ), as its main loop traverses from 0 to pow, and never calls itself. powF also has a complexity of O(pow), as it will continue to recurse as long as pow>1, and each time it recurses pow is reduced by 1.
+
+Part 3
+In this particular instance, the recursive function is simpler than the iterative function; however, recursive functions also have an upper limit due to the size of the stack, so particularly large recursions may cause problems. 
